@@ -23,7 +23,7 @@
 						var frame = this;
 						frame.contentWindow.document.innerHTML = '';
 
-						if (--len <= 0) {
+						if (--len === 0) {
 							$frame.remove();
 						}
 					});
