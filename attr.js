@@ -1,12 +1,16 @@
 (function (global, factory) {
-	factory(global);
-}(window || this), function (global) {
-	if (require) {
-		factory(require);
+	if (typeof module === 'object' && typeof module.exports === 'object') {
+		module.exports = factory(global);
+	} else {
+		factory(global);
 	}
+}(window || this, function (global) {
 	// Support cmd && amd
 	if (define) {
 		define(factory);
+	}
+	if (typeof require === 'function') {
+		return factory(require);
 	}
 	function factory (require, exports) {
 		var 
@@ -32,4 +36,4 @@
 			}, 		
 		});	
 	}
-});
+}));
