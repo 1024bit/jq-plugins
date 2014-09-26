@@ -9,11 +9,12 @@ define(function(require, exports) {
 				'position' : 'relative'
 			});
 		}
-		var $target = this.find(selector),
+		
+		var $target = (selector instanceof $) ? selector : this.find(selector),
 		offset = $target.position(),
 		dist,
 		scrolltop = this.scrollTop();
 		dist = scrolltop - offset.top - parseFloat(this.css('borderTop'));
-		this.scrollTop(scrolltop - dist);
+		return this.scrollTop(scrolltop - dist);
 	};
 });

@@ -12,7 +12,6 @@ define("jquery.fn.metadata", function(require, exports) {
 				}
 					 : {});
 		} else {
-			// data = this.data('data-' + name) || '{}';
 			data = this.data(name) || '{}';
 			if ($.type(data) === 'string') {
 				data = data.length && eval('(' + data + ')');

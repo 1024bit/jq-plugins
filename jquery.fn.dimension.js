@@ -9,15 +9,15 @@ define("jquery.fn.dimension", function(require, exports) {
 		dimWidth : function (val) {
 			return this.width(
 				val 
-				- parseInt(this.css('borderLeftWidth')) - parseInt(this.css('borderRightWidth')) 
-				- parseInt(this.css('paddingLeft')) - parseInt(this.css('paddingRight'))
+				- parseFloat(this.css('borderLeftWidth')) - parseFloat(this.css('borderRightWidth')) 
+				- parseFloat(this.css('paddingLeft')) - parseFloat(this.css('paddingRight'))
 			);
 		},
 		dimHeight : function (val) {
 			return this.height(
 				val 
-				- parseInt(this.css('borderTopWidth')) - parseInt(this.css('borderBottomWidth')) 
-				- parseInt(this.css('paddingTop')) - parseInt(this.css('paddingBottom'))
+				- parseFloat(this.css('borderTopWidth')) - parseFloat(this.css('borderBottomWidth')) 
+				- parseFloat(this.css('paddingTop')) - parseFloat(this.css('paddingBottom'))
 			);
 		}
 	});
