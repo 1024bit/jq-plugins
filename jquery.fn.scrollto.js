@@ -1,20 +1,17 @@
+/**
+ * Scroll to
+ */
 define(function(require, exports) {
 	var
 	$ = require('jquery');
 
 	$.fn.scrollTo = function (selector) {
+		var $target = (selector instanceof $) ? selector : this.find(selector);
 		// An element is said to be positioned if it has a CSS position attribute of relative, absolute, or fixed.
 		if (!~('relative, absolute, fixed'.indexOf(this.css('position')))) {
-			this.css({
-				'position' : 'relative'
-			});
+			this.css({"position": "relative"});
 		}
 		
-		var $target = (selector instanceof $) ? selector : this.find(selector),
-		offset = $target.position(),
-		dist,
-		scrolltop = this.scrollTop();
-		dist = scrolltop - offset.top - parseFloat(this.css('borderTop'));
-		return this.scrollTop(scrolltop - dist);
+		return this.scrollTop(this.scrollTop() + $target.position().top + parseFloat(this.css('borderTop')));
 	};
 });
